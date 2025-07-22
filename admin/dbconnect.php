@@ -1,18 +1,21 @@
 <?php
 $hostname="localhost";
-$usenamer= "root";
+$username= "root";
 $password= "";
 $dbname= "golden_city";
-//creating datasource name
+// creating data source name
 
-$dns= "mysql:host=$hostname; dbname=$dbname";
-try {
-$conn = new PDO($hostname, $username, $password);
-    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $conn->setAttribute( PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC );
-    echo "connection get";
-}catch(PDOException $e) {
+$dsn="mysql:host=$hostname; dbname=$dbname";
+try
+{
+    $conn = new PDO($dsn, $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    echo"connected";
+
+}catch(PDOException $e){
     echo $e->getMessage();
 }
+
 
 ?>
